@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:handlerify/widgets/statistic_card.dart';
 
 class TrainPage extends StatefulWidget {
   const TrainPage({super.key});
@@ -12,7 +13,7 @@ class TrainPage extends StatefulWidget {
 
 class _TrainState extends State<TrainPage> {
 
-  void _incrementCounter() {
+  void _startSession() {
   }
 
   @override
@@ -26,10 +27,15 @@ class _TrainState extends State<TrainPage> {
         centerTitle: false,
         elevation: 0,
       ),
-
+      body: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //mainAxisSize: MainAxisSize.max,
+          children: [
+            StatisticCard(value: '4', description: 'Sessions',),
+            StatisticCard(value: '1:35:05', description: 'Elapsed Time',),
+      ]),
       floatingActionButton: FloatingActionButton(
-      onPressed: _incrementCounter,
-      //tooltip: 'Increment',
+      onPressed: _startSession,
       backgroundColor: Colors.red,
       child: const Icon(Icons.circle),
       ), // This trailing comma makes auto-formatting nicer for build methods.
