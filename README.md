@@ -1,7 +1,26 @@
-# handlerify
-Working dog training and AI-driven feedback for the handler app idea brainstorming
+# Handlerify
+Working dog training and AI-driven feedback for the handler. Development using Flutter for multi-platform releases. 
 
+# Progress
+- [x] Basic UI layout with navigation implemented for Train & Statistics pages
+- [x] Train page
+    - [ ] Display daily statistics: number of sessions, elapsed time, and distance
+    - [ ] Display list of sessions for the day
+    - [ ] Allow a new training session to be started
+- [ ] New training session / activity page
+  - [ ] Record audio from microphone for duration of session and save m4a to device
+  - [ ] Save start time
+  - [ ] Display timer hh:mm:ss.ms updated every 100ms while session is active
+  - [ ] Save geolocation data for computing distance traveled
+  - [ ] Option to enter one or more note tags
+- [ ] Pause in-progress training session / activity
+  - [ ] Option to delete session
+  - [ ] Option to save session
+  - [ ] Option to enter a custom name for session otherwise defaults to 'Month Day Session X'
+  - [ ] Option to enter one or more location tags such as 'Home', 'Dog park' etc.
+  - [ ] Automatic editable tagging of location based on GPS coordinates and existing tag information
 
+# Machine Learning Ideas
 ## Handler Voice commands
 ### Markers
 - Yes
