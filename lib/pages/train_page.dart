@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:handlerify/widgets/statistic_card.dart';
+
+import '../widgets/session_list.dart';
 
 class TrainPage extends StatefulWidget {
   const TrainPage({super.key});
@@ -19,22 +22,15 @@ class _TrainState extends State<TrainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme
-            .of(context)
-            .scaffoldBackgroundColor,
-        title: Text('Today'),
-        centerTitle: false,
-        elevation: 0,
-      ),
       body: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //mainAxisSize: MainAxisSize.max,
-          children: [
-            StatisticCard(value: '4', description: 'Sessions',),
-            StatisticCard(value: '1:35:05', description: 'Elapsed Time',),
-            StatisticCard(value: '1.3 mi', description: 'Distance',),
-      ]),
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //mainAxisSize: MainAxisSize.max,
+            children: [
+              StatisticCard(value: '4', description: 'Sessions',),
+              StatisticCard(value: '1:35:05', description: 'Elapsed Time',),
+              StatisticCard(value: '1.3 mi', description: 'Distance',),
+            ]),
+      // TODO: see if can do this without nested scaffold
       floatingActionButton: FloatingActionButton(
       onPressed: _startSession,
       backgroundColor: Colors.red,

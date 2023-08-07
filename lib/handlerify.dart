@@ -32,6 +32,11 @@ class _HandlerifyState extends State<Handlerify> {
     StatisticsPage(),
   ];
 
+  static const List<String> _pageTitles = <String>[
+    'Today',
+    'Statistics'
+  ];
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -41,6 +46,14 @@ class _HandlerifyState extends State<Handlerify> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme
+            .of(context)
+            .scaffoldBackgroundColor,
+        title: Text(_pageTitles[_selectedIndex]),
+        centerTitle: false,
+        elevation: 0,
+      ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.black,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:handlerify/widgets/session_list.dart';
 
 class StatisticsPage extends StatefulWidget {
   const StatisticsPage({super.key});
@@ -11,15 +12,6 @@ class _StatisticsState extends State<StatisticsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme
-            .of(context)
-            .scaffoldBackgroundColor,
-        title: Text('Statistics'),
-        centerTitle: false,
-        elevation: 0,
-      ),
-    );
+    return SessionList();
   }
 }
