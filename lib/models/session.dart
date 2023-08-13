@@ -13,5 +13,5 @@ class Session {
   // TODO: geolocation waypoints
   // TODO: audio file information
 
-  Session();
+  Session(this.title, this.locationTag);
 }
