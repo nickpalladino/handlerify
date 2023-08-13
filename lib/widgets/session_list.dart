@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../models/session.dart';
+import 'package:handlerify/widgets/tag.dart';
 
 class SessionList extends StatelessWidget {
   SessionList({super.key});
 
-  final List<String> entries = <String>['A', 'B', 'C'];
-  final List<int> colorCodes = <int>[600, 500, 100];
+  final List<String> entries = <String>['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+  final List<int> colorCodes = <int>[600, 500];
 
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -14,18 +14,18 @@ class SessionList extends StatelessWidget {
         itemCount: entries.length,
         itemBuilder: (BuildContext context, int index) {
           return Padding(
-              padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+              padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
               child: Container(
             height: 100,
             color: Theme.of(context).colorScheme.surfaceVariant,
-            child: const Column(
+            child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
               Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                 Column(children: [
-                  Text('Aug. 5 Session'),
+                  Text('Aug. 5 Session', style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.5)),
               ]),
                 Column(children: [
                   Text('8:23 AM'),
@@ -41,7 +41,9 @@ class SessionList extends StatelessWidget {
                       Icon(Icons.place),
                     ]),
                     Column(children: [
-                      Text('Home'),
+                      //Text('Home'),
+                      Tag(value: 'Apartment',
+                          backgroundColor: Colors.green),
                     ]),
                     Column(children: [
                       Icon(Icons.construction,),

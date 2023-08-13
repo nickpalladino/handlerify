@@ -22,7 +22,9 @@ class _TrainState extends State<TrainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
+      body: Column(
+      children: [
+            Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             //mainAxisSize: MainAxisSize.max,
             children: [
@@ -30,14 +32,24 @@ class _TrainState extends State<TrainPage> {
               StatisticCard(value: '1:35:05', description: 'Elapsed Time',),
               StatisticCard(value: '1.3 mi', description: 'Distance',),
             ]),
+            Row(children: [
+              Expanded(child:
+              SizedBox(
+                height: 550.0,
+                child:
+                SessionList(),
+              ))
+            ],),
+      ]),
       // TODO: see if can do this without nested scaffold
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.large(
       onPressed: _startSession,
       backgroundColor: Colors.red,
       child: const Icon(Icons.circle),
       ), // This trailing comma makes auto-formatting nicer for build methods.
       floatingActionButtonLocation:
       FloatingActionButtonLocation.centerFloat,
+
     );
   }
 }

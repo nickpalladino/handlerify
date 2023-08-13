@@ -17,8 +17,8 @@ class StatisticCard extends StatelessWidget {
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
           child: Column(children: [
-           Text(description),
-           Text(value, style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2.5))
+          Expanded(child: Text(description),),
+          Expanded(child:  Text(value, style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2.0))),
          ])
         ),
       ),
