@@ -28,7 +28,7 @@ class _TrainState extends State<TrainPage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             //mainAxisSize: MainAxisSize.max,
             children: [
-              StatisticCard(value: '4', description: 'Sessions',),
+              StatisticCard(value: '6', description: 'Sessions',),
               StatisticCard(value: '1:35:05', description: 'Elapsed Time',),
               StatisticCard(value: '1.3 mi', description: 'Distance',),
             ]),
