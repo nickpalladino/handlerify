@@ -6,7 +6,10 @@ Working dog training and AI-driven feedback for the handler. Development using F
 - [x] Train page
     - [ ] Display daily statistics: number of sessions, elapsed time, and distance
     - [ ] Display list of sessions for the day
-    - [ ] Allow a new training session to be started
+    - [x] Allow a new training session to be started
+- [x] Statistics page
+    - [ ] Display statistics by time scale
+    - [ ] Display list of sessions all sessions that is filterable
 - [ ] New training session / activity page
   - [ ] Record audio from microphone for duration of session and save m4a to device
   - [ ] Save start time
