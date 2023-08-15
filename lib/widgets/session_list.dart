@@ -78,12 +78,13 @@ class SessionList extends StatelessWidget {
                           )]),
                     Column(children: [
                       Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                          padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
                           child:
                       Icon(Icons.timer,),)
                     ]),
                     Column(children: [
-                      Text('1:15:34'),
+                      //Text('1:15:34'),
+                      Text(sessions[index].getFormattedElapsedTime())
                     ]),
                     //Text('Entry ${entries[index]}')
                   ]),
