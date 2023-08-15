@@ -5,19 +5,12 @@ import 'package:handlerify/widgets/tag.dart';
 import 'package:intl/intl.dart';
 
 class SessionList extends StatelessWidget {
-  SessionList({super.key});
+  SessionList({super.key, required this.sessions});
+
+  List<Session> sessions;
 
   // hh:mm
   final DateFormat formatter = DateFormat('jm');
-
-  List<Session> sessions = [
-    Session('Aug 12 Session 6', LocationTag('Apartment'), DateTime.parse('2023-08-12 20:32:04Z')),
-    Session('Aug 12 Session 5', LocationTag('Apartment Dog Park'), DateTime.parse('2023-08-12 17:10:04Z')),
-    Session('Aug 12 Session 4', LocationTag('Apartment'), DateTime.parse('2023-08-12 15:45:04Z')),
-    Session('Aug 12 Session 3', LocationTag('Lowes Parking Lot'), DateTime.parse('2023-08-12 12:06:04Z')),
-    Session('Aug 12 Session 2', LocationTag('Apartment'), DateTime.parse('2023-08-12 10:22:04Z')),
-    Session('Aug 12 Session 1', LocationTag('Ithaca Dog Park'), DateTime.parse('2023-08-12 08:18:04Z')),
-  ];
 
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -76,7 +69,10 @@ class SessionList extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
                             child:
-                              Badge(label: Text('2'),
+                              Badge(label: Text('1'),
+                                backgroundColor: Colors.blue,
+                                textColor: Colors.white,
+                                //extStyle: TextStyle(fontWeight: FontWeight.bold),
                                 child: Icon(Icons.text_snippet),)
                             //Icon(Icons.text_snippet,),
                           )]),

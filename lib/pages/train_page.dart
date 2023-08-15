@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:handlerify/widgets/statistic_card.dart';
 
+import '../models/location_tag.dart';
+import '../models/session.dart';
+import '../services/session_service.dart';
 import '../widgets/session_list.dart';
 
 class TrainPage extends StatefulWidget {
@@ -15,6 +18,8 @@ class TrainPage extends StatefulWidget {
 }
 
 class _TrainState extends State<TrainPage> {
+
+  List<Session> sessions = SessionService.getTodaysSessions();
 
   void _startSession() {
   }
@@ -37,7 +42,7 @@ class _TrainState extends State<TrainPage> {
               SizedBox(
                 height: 550.0,
                 child:
-                SessionList(),
+                SessionList(sessions: sessions,),
               ))
             ],),
       ]),
