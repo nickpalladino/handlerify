@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:handlerify/models/session.dart';
 import 'package:handlerify/ui/widgets/tag.dart';
 import 'package:intl/intl.dart';
+import 'package:badges/badges.dart' as badges;
 
 
 class SessionList extends StatelessWidget {
@@ -69,10 +70,14 @@ class SessionList extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
                             child:
-                              Badge(label: Text(sessions[index].getNumberNotes().toString()),
-                                backgroundColor: Colors.blue,
-                                textColor: Colors.white,
-                                //extStyle: TextStyle(fontWeight: FontWeight.bold),
+                              badges.Badge(
+                                position: badges.BadgePosition.topEnd(top: -10, end: -5),
+                                badgeContent: Text(sessions[index].getNumberNotes().toString()),
+                                showBadge: sessions[index].getNumberNotes() > 0,
+                                badgeStyle: badges.BadgeStyle(
+                                  badgeColor: Colors.blue,),
+                                badgeAnimation: badges.BadgeAnimation.slide(
+                                  toAnimate: false),
                                 child: Icon(Icons.text_snippet),)
                             //Icon(Icons.text_snippet,),
                           )]),

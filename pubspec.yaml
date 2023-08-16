@@ -38,6 +38,7 @@ dependencies:
   intl: ^0.18.1
   get_it: ^7.6.0
   injectable: ^2.2.0
+  badges: ^3.1.1
 
 dev_dependencies:
   flutter_test:
