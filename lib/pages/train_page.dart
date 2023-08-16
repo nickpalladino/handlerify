@@ -1,17 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:handlerify/injectable.dart';
+import 'package:handlerify/services/session_service_drift.dart';
 import 'package:handlerify/widgets/statistic_card.dart';
+import 'package:injectable/injectable.dart';
 
 import '../models/location_tag.dart';
 import '../models/session.dart';
 import '../services/session_service.dart';
+import '../services/session_service_mock.dart';
 import '../widgets/session_list.dart';
 
 class TrainPage extends StatefulWidget {
   const TrainPage({super.key});
-  //const Train({super.key, required this.title});
-  //final String title;
-
 
   @override
   State<TrainPage> createState() => _TrainState();
@@ -19,7 +20,12 @@ class TrainPage extends StatefulWidget {
 
 class _TrainState extends State<TrainPage> {
 
-  List<Session> sessions = SessionService.getTodaysSessions();
+  final SessionService sessionService = getIt.get<SessionServiceMock>();
+  List<Session> sessions = [];
+
+  _TrainState() {
+    sessions = sessionService.getTodaysSessions();
+  }
 
   void _startSession() {
   }

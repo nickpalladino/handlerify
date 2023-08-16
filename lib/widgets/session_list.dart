@@ -69,7 +69,7 @@ class SessionList extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
                             child:
-                              Badge(label: Text('1'),
+                              Badge(label: Text(sessions[index].getNumberNotes().toString()),
                                 backgroundColor: Colors.blue,
                                 textColor: Colors.white,
                                 //extStyle: TextStyle(fontWeight: FontWeight.bold),

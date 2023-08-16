@@ -13,12 +13,19 @@ class Session {
   // TODO: geolocation waypoints
   // TODO: audio file information
 
-  Session(this.title, this.locationTag, this.startTime, this.elapsedTime);
+  Session(this.title, this.locationTag, this.startTime, this.elapsedTime, this.notes);
 
   String getFormattedElapsedTime() {
     if (elapsedTime!.inHours < 1) {
       return elapsedTime.toString().substring(2, 7);
     }
     return elapsedTime.toString().split('.').first;
+  }
+
+  int getNumberNotes() {
+    if (notes != null) {
+      return notes!.length;
+    }
+    return 0;
   }
 }
