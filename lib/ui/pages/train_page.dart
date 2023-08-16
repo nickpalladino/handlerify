@@ -1,14 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:handlerify/injectable.dart';
-import 'package:handlerify/services/session_service_drift.dart';
-import 'package:handlerify/widgets/statistic_card.dart';
-import 'package:injectable/injectable.dart';
+import 'package:handlerify/ui/widgets/statistic_card.dart';
 
-import '../models/location_tag.dart';
-import '../models/session.dart';
-import '../services/session_service.dart';
-import '../services/session_service_mock.dart';
+import '../../models/session.dart';
+import '../../services/session_service.dart';
+import '../../services/session_service_mock.dart';
 import '../widgets/session_list.dart';
 
 class TrainPage extends StatefulWidget {

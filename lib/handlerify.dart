@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:handlerify/pages/train_page.dart';
-import 'package:handlerify/pages/statistics_page.dart';
+import 'package:handlerify/ui/pages/train_page.dart';
+import 'package:handlerify/ui/pages/statistics_page.dart';
 
 class HandlerifyApp extends StatelessWidget {
   const HandlerifyApp({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:handlerify/models/location_tag.dart';
 import 'package:handlerify/models/session.dart';
-import 'package:handlerify/widgets/tag.dart';
+import 'package:handlerify/ui/widgets/tag.dart';
 import 'package:intl/intl.dart';
+
 
 class SessionList extends StatelessWidget {
   SessionList({super.key, required this.sessions});

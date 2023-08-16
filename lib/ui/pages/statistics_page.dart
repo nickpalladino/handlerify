@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:handlerify/widgets/session_list.dart';
+import 'package:handlerify/ui/widgets/session_list.dart';
 
-import '../models/session.dart';
-import '../services/session_service_mock.dart';
+import '../../models/session.dart';
+import '../../services/session_service_mock.dart';
+
 
 class StatisticsPage extends StatefulWidget {
   const StatisticsPage({super.key});
