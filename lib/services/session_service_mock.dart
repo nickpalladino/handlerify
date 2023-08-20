@@ -5,7 +5,8 @@ import '../models/location_tag.dart';
 import '../models/note.dart';
 import '../models/session.dart';
 
-@singleton
+@test
+@Singleton(as: SessionService)
 class SessionServiceMock implements SessionService {
 
   SessionServiceMock();
@@ -27,7 +28,8 @@ class SessionServiceMock implements SessionService {
     return sessions;
   }
 
-  List<Session> getAllSessions() {
-    return getTodaysSessions();
+  Future<List<Session>> getAllSessions() async {
+    Future<List<Session>> sessions = Future.value(getTodaysSessions());
+    return sessions;
   }
 }

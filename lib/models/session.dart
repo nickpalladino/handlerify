@@ -1,3 +1,4 @@
+import 'package:handlerify/db/database.dart' as db;
 import 'package:handlerify/models/location_tag.dart';
 
 import 'note.dart';
@@ -14,6 +15,10 @@ class Session {
   // TODO: audio file information
 
   Session(this.title, this.locationTag, this.startTime, this.elapsedTime, this.notes);
+
+  Session.fromDatabase(db.Session session) {
+    title = session.title;
+  }
 
   String getFormattedElapsedTime() {
     if (elapsedTime!.inHours < 1) {

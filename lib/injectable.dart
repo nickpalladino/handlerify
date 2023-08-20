@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:handlerify/db/database.dart';
 import 'package:injectable/injectable.dart';
 
 import 'injectable.config.dart';
@@ -10,4 +11,4 @@ final getIt = GetIt.instance;
   preferRelativeImports: true, // default
   asExtension: true, // default
 )
-void configureDependencies() => getIt.init();
+void configureDependencies(String? env) => getIt.init(environment: env);

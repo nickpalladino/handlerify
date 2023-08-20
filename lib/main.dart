@@ -3,6 +3,6 @@ import 'handlerify.dart';
 import 'injectable.dart';
 
 void main() {
-  configureDependencies();
+  configureDependencies('test');
   runApp(const HandlerifyApp());
 }

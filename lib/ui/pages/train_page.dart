@@ -17,7 +17,7 @@ class TrainPage extends StatefulWidget {
 
 class _TrainState extends State<TrainPage> {
 
-  final SessionService sessionService = getIt.get<SessionServiceMock>();
+  final SessionService sessionService = getIt.get<SessionService>();
   List<Session> sessions = [];
 
   _TrainState() {

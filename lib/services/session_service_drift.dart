@@ -1,12 +1,17 @@
+import 'package:handlerify/daos/sessions_dao.dart';
 import 'package:handlerify/services/session_service.dart';
 import 'package:injectable/injectable.dart';
+import 'package:handlerify/db/database.dart' as db;
 
 import '../models/session.dart';
 
-@singleton
+@dev
+@Singleton(as: SessionService)
 class SessionServiceDrift implements SessionService {
 
-  SessionServiceDrift();
+  final SessionsDao sessionsDao;
+
+  SessionServiceDrift(SessionsDao this.sessionsDao);
 
   List<Session> getTodaysSessions() {
     // TODO
@@ -14,7 +19,8 @@ class SessionServiceDrift implements SessionService {
     return sessions;
   }
 
-  List<Session> getAllSessions() {
-    return getTodaysSessions();
+  Future<List<Session>> getAllSessions() async {
+    List<db.Session> sessions = await sessionsDao.getAll();
+    return sessions.map((session) => Session.fromDatabase(session)).toList();
   }
 }

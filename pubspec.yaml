@@ -39,6 +39,11 @@ dependencies:
   get_it: ^7.6.0
   injectable: ^2.2.0
   badges: ^3.1.1
+  drift: ^2.11.0
+  sqlite3_flutter_libs: ^0.5.0
+  path_provider: ^2.0.0
+  path: ^1.8.3
+
 
 dev_dependencies:
   flutter_test:
@@ -46,6 +51,7 @@ dev_dependencies:
   flutter_launcher_icons: "^0.13.1"
   injectable_generator:
   build_runner:
+  drift_dev: ^2.11.0
 
 flutter_launcher_icons:
   android: "launcher_icon"
