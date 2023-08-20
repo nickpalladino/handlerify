@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:handlerify/injectable.dart';
+import 'package:handlerify/services/session_controller.dart';
 import 'package:handlerify/ui/widgets/statistic_card.dart';
 
 import '../../models/session.dart';
@@ -17,14 +18,14 @@ class TrainPage extends StatefulWidget {
 
 class _TrainState extends State<TrainPage> {
 
-  final SessionService sessionService = getIt.get<SessionService>();
+  final SessionController sessionController = getIt.get<SessionController>();
   List<Session> sessions = [];
 
-  _TrainState() {
-    sessions = sessionService.getTodaysSessions();
-  }
 
-  void _startSession() {
+  Future<void> _startSession() async {
+    await sessionController.start();
+    // TODO: just testing for now
+    sessionController.save();
   }
 
   @override

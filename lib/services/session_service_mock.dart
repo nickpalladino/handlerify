@@ -32,4 +32,12 @@ class SessionServiceMock implements SessionService {
     Future<List<Session>> sessions = Future.value(getTodaysSessions());
     return sessions;
   }
+
+  void create(Session session) {
+    // TODO
+  }
+
+  Future<int> getAllCount() {
+    return Future.value(0);
+  }
 }

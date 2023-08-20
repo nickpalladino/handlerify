@@ -14,4 +14,19 @@ class SessionsDao extends DatabaseAccessor<HandlerifyDatabase> with _$SessionsDa
   Future<List<Session>> getAll() {
     return select(sessions).get();
   }
+
+  Future<int> getCount() async {
+    Expression<int> countSessions = sessions.id.count();
+
+    // Add the expression to a select statement to evaluate it.
+    final query = selectOnly(sessions)..addColumns([countSessions]);
+    int? count = await query.map((row) => row.read(countSessions)).getSingle();
+    return count != null ? count : 0;
+  }
+
+  Future<int> create(SessionsCompanion entry) {
+    return into(sessions).insert(entry);
+  }
+
+
 }

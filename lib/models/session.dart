@@ -1,6 +1,4 @@
-import 'package:handlerify/db/database.dart' as db;
 import 'package:handlerify/models/location_tag.dart';
-
 import 'note.dart';
 
 class Session {
@@ -16,9 +14,7 @@ class Session {
 
   Session(this.title, this.locationTag, this.startTime, this.elapsedTime, this.notes);
 
-  Session.fromDatabase(db.Session session) {
-    title = session.title;
-  }
+  Session.empty();
 
   String getFormattedElapsedTime() {
     if (elapsedTime!.inHours < 1) {

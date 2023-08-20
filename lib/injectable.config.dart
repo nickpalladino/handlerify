@@ -14,8 +14,9 @@ import 'package:injectable/injectable.dart' as _i2;
 
 import 'daos/sessions_dao.dart' as _i6;
 import 'db/database.dart' as _i3;
+import 'services/session_controller.dart' as _i7;
 import 'services/session_service.dart' as _i4;
-import 'services/session_service_drift.dart' as _i7;
+import 'services/session_service_drift.dart' as _i8;
 import 'services/session_service_mock.dart' as _i5;
 
 const String _test = 'test';
@@ -39,8 +40,15 @@ extension GetItInjectableX on _i1.GetIt {
     );
     gh.singleton<_i6.SessionsDao>(
         _i6.SessionsDao(gh<_i3.HandlerifyDatabase>()));
+    gh.factory<_i7.SessionController>(
+      () => _i7.SessionController(gh<_i4.SessionService>()),
+      registerFor: {
+        _dev,
+        _test,
+      },
+    );
     gh.singleton<_i4.SessionService>(
-      _i7.SessionServiceDrift(gh<_i6.SessionsDao>()),
+      _i8.SessionServiceDrift(gh<_i6.SessionsDao>()),
       registerFor: {_dev},
     );
     return this;
