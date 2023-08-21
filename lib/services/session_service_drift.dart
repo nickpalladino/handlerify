@@ -3,7 +3,6 @@ import 'package:handlerify/daos/sessions_dao.dart';
 import 'package:handlerify/services/session_service.dart';
 import 'package:injectable/injectable.dart';
 import 'package:handlerify/db/database.dart' as db;
-import 'package:intl/intl.dart';
 
 import '../models/location_tag.dart';
 import '../models/note.dart';
@@ -24,7 +23,7 @@ class SessionServiceDrift implements SessionService {
       session.title,
       //TODO: actual db values
       LocationTag('Apartment'),
-      DateTime.parse('2023-08-12 20:32:04Z'),
+      session.startTime,
       Duration(minutes: 15, seconds:30),
       noNotes
     );
@@ -37,10 +36,9 @@ class SessionServiceDrift implements SessionService {
     );
   }
 
-  List<Session> getTodaysSessions() {
-    // TODO
-    List<Session> sessions = [];
-    return sessions;
+  Future<List<Session>> getTodaysSessions() async {
+    List<db.Session> sessions = await sessionsDao.getToday();
+    return sessions.map((session) => _fromDatabase(session)).toList();
   }
 
   Future<List<Session>> getAllSessions() async {

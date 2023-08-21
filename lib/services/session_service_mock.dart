@@ -11,7 +11,7 @@ class SessionServiceMock implements SessionService {
 
   SessionServiceMock();
 
-  List<Session> getTodaysSessions() {
+  Future<List<Session>> getTodaysSessions() {
 
     List<Note> noNotes = <Note>[];
     List<Note> oneNote = [Note()];
@@ -25,7 +25,7 @@ class SessionServiceMock implements SessionService {
       Session('Aug 12 Session 2', LocationTag('Apartment'), DateTime.parse('2023-08-12 10:22:04Z'), Duration(minutes: 16, seconds:30), twoNotes),
       Session('Aug 12 Session 1', LocationTag('Ithaca Dog Park'), DateTime.parse('2023-08-12 08:18:04Z'), Duration(minutes: 17, seconds:30), oneNote),
     ];
-    return sessions;
+    return Future.value(sessions);
   }
 
   Future<List<Session>> getAllSessions() async {

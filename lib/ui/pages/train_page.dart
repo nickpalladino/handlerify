@@ -18,9 +18,9 @@ class TrainPage extends StatefulWidget {
 
 class _TrainState extends State<TrainPage> {
 
+  // TODO: move session controller to session page
   final SessionController sessionController = getIt.get<SessionController>();
-  List<Session> sessions = [];
-
+  final SessionService sessionService = getIt.get<SessionService>();
 
   Future<void> _startSession() async {
     await sessionController.start();
@@ -30,35 +30,55 @@ class _TrainState extends State<TrainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-      children: [
-            Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //mainAxisSize: MainAxisSize.max,
-            children: [
-              StatisticCard(value: '6', description: 'Sessions',),
-              StatisticCard(value: '1:35:05', description: 'Elapsed Time',),
-              StatisticCard(value: '1.3 mi', description: 'Distance',),
-            ]),
-            Row(children: [
+    return FutureBuilder<List<Session>>(
+        future: sessionService.getTodaysSessions(),
+        builder: (BuildContext context, AsyncSnapshot<List<Session>> snapshot) {
+          List<Widget> children;
+          if (snapshot.hasData) {
+            children = <Widget>[
               Expanded(child:
-              SizedBox(
-                height: 550.0,
-                child:
-                SessionList(sessions: sessions,),
-              ))
-            ],),
-      ]),
-      // TODO: see if can do this without nested scaffold
-      floatingActionButton: FloatingActionButton.large(
-      onPressed: _startSession,
-      backgroundColor: Colors.red,
-      child: const Icon(Icons.circle),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-      floatingActionButtonLocation:
-      FloatingActionButtonLocation.centerFloat,
+              Scaffold(
+                body: Column(
+                    children: [
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          //mainAxisSize: MainAxisSize.max,
+                          children: [
+                            StatisticCard(value: '6', description: 'Sessions',),
+                            StatisticCard(
+                              value: '1:35:05', description: 'Elapsed Time',),
+                            StatisticCard(
+                              value: '1.3 mi', description: 'Distance',),
+                          ]),
+                      Row(children: [
+                        Expanded(child:
+                        SizedBox(
+                          height: 550.0,
+                          child:
+                          SessionList(sessions: snapshot.data!),
+                        ))
+                      ],),
+                    ]),
+                // TODO: see if can do this without nested scaffold
+                floatingActionButton: FloatingActionButton.large(
+                  onPressed: _startSession,
+                  backgroundColor: Colors.red,
+                  child: const Icon(Icons.circle),
+                ),
+                // This trailing comma makes auto-formatting nicer for build methods.
+                floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerFloat,
 
-    );
+              )
+              )
+            ];
+          } else {
+            children = const <Widget>[
+              // TODO: Make this nicer
+              Text('Loading')
+            ];
+          }
+          return Column(children: children);
+        });
   }
 }

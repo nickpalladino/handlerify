@@ -17,6 +17,32 @@ class SessionsDao extends DatabaseAccessor<HandlerifyDatabase> with _$SessionsDa
     ])).get();
   }
 
+  Future<List<Session>> getToday() {
+    // TODO: this still needs work
+    final now = DateTime.now().toUtc();
+
+    return (select(sessions)..where((session) => 
+        session.startTime.month.equals(now.month) &
+        session.startTime.year.equals(now.year) &
+        session.startTime.day.equals(now.day)
+    )..orderBy([
+          (session) => OrderingTerm(expression: session.startTime, mode: OrderingMode.desc)
+    ])).get();
+
+    /*
+    return (select(sessions)..where((session) {
+
+      final startTime = session.startTime;
+      final dbMonth = startTime.month;
+      final sameYear = startTime.year.equals(now.year);
+      final sameMonth = startTime.month.equals(now.month);
+      final sameDay = startTime.day.equals(now.day);
+      return sameYear & sameMonth & sameDay;
+    })).get();
+    */
+
+  }
+
   Future<int> getCount() async {
     Expression<int> countSessions = sessions.id.count();
 
@@ -29,6 +55,5 @@ class SessionsDao extends DatabaseAccessor<HandlerifyDatabase> with _$SessionsDa
   Future<int> create(SessionsCompanion entry) {
     return into(sessions).insert(entry);
   }
-
 
 }
