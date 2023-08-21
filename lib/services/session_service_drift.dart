@@ -32,7 +32,8 @@ class SessionServiceDrift implements SessionService {
 
   db.SessionsCompanion _toCompanion(Session session) {
     return db.SessionsCompanion(
-        title: Value(session.title!)
+        title: Value(session.title!),
+        startTime: Value(session.startTime!)
     );
   }
 
@@ -55,10 +56,5 @@ class SessionServiceDrift implements SessionService {
     db.SessionsCompanion entry = _toCompanion(session);
     await sessionsDao.create(entry);
   }
-
-
-
-
-
 
 }

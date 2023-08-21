@@ -12,7 +12,9 @@ class SessionsDao extends DatabaseAccessor<HandlerifyDatabase> with _$SessionsDa
   SessionsDao(HandlerifyDatabase db) : super(db);
 
   Future<List<Session>> getAll() {
-    return select(sessions).get();
+    return (select(sessions)..orderBy([
+      (session) => OrderingTerm(expression: session.startTime, mode: OrderingMode.desc)
+    ])).get();
   }
 
   Future<int> getCount() async {

@@ -11,6 +11,8 @@ part 'database.g.dart';
 class Sessions extends Table {
   IntColumn get id => integer().autoIncrement()();
   TextColumn get title => text()();
+  DateTimeColumn get startTime => dateTime()();
+  //DateTimeColumn get endTime => dateTime()();
 }
 
 @singleton

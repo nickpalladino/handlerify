@@ -22,8 +22,14 @@ class $SessionsTable extends Sessions with TableInfo<$SessionsTable, Session> {
   late final GeneratedColumn<String> title = GeneratedColumn<String>(
       'title', aliasedName, false,
       type: DriftSqlType.string, requiredDuringInsert: true);
+  static const VerificationMeta _startTimeMeta =
+      const VerificationMeta('startTime');
   @override
-  List<GeneratedColumn> get $columns => [id, title];
+  late final GeneratedColumn<DateTime> startTime = GeneratedColumn<DateTime>(
+      'start_time', aliasedName, false,
+      type: DriftSqlType.dateTime, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns => [id, title, startTime];
   @override
   String get aliasedName => _alias ?? 'sessions';
   @override
@@ -42,6 +48,12 @@ class $SessionsTable extends Sessions with TableInfo<$SessionsTable, Session> {
     } else if (isInserting) {
       context.missing(_titleMeta);
     }
+    if (data.containsKey('start_time')) {
+      context.handle(_startTimeMeta,
+          startTime.isAcceptableOrUnknown(data['start_time']!, _startTimeMeta));
+    } else if (isInserting) {
+      context.missing(_startTimeMeta);
+    }
     return context;
   }
 
@@ -55,6 +67,8 @@ class $SessionsTable extends Sessions with TableInfo<$SessionsTable, Session> {
           .read(DriftSqlType.int, data['${effectivePrefix}id'])!,
       title: attachedDatabase.typeMapping
           .read(DriftSqlType.string, data['${effectivePrefix}title'])!,
+      startTime: attachedDatabase.typeMapping
+          .read(DriftSqlType.dateTime, data['${effectivePrefix}start_time'])!,
     );
   }
 
@@ -67,12 +81,15 @@ class $SessionsTable extends Sessions with TableInfo<$SessionsTable, Session> {
 class Session extends DataClass implements Insertable<Session> {
   final int id;
   final String title;
-  const Session({required this.id, required this.title});
+  final DateTime startTime;
+  const Session(
+      {required this.id, required this.title, required this.startTime});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
     map['id'] = Variable<int>(id);
     map['title'] = Variable<String>(title);
+    map['start_time'] = Variable<DateTime>(startTime);
     return map;
   }
 
@@ -80,6 +97,7 @@ class Session extends DataClass implements Insertable<Session> {
     return SessionsCompanion(
       id: Value(id),
       title: Value(title),
+      startTime: Value(startTime),
     );
   }
 
@@ -89,6 +107,7 @@ class Session extends DataClass implements Insertable<Session> {
     return Session(
       id: serializer.fromJson<int>(json['id']),
       title: serializer.fromJson<String>(json['title']),
+      startTime: serializer.fromJson<DateTime>(json['startTime']),
     );
   }
   @override
@@ -97,55 +116,69 @@ class Session extends DataClass implements Insertable<Session> {
     return <String, dynamic>{
       'id': serializer.toJson<int>(id),
       'title': serializer.toJson<String>(title),
+      'startTime': serializer.toJson<DateTime>(startTime),
     };
   }
 
-  Session copyWith({int? id, String? title}) => Session(
+  Session copyWith({int? id, String? title, DateTime? startTime}) => Session(
         id: id ?? this.id,
         title: title ?? this.title,
+        startTime: startTime ?? this.startTime,
       );
   @override
   String toString() {
     return (StringBuffer('Session(')
           ..write('id: $id, ')
-          ..write('title: $title')
+          ..write('title: $title, ')
+          ..write('startTime: $startTime')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, title);
+  int get hashCode => Object.hash(id, title, startTime);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is Session && other.id == this.id && other.title == this.title);
+      (other is Session &&
+          other.id == this.id &&
+          other.title == this.title &&
+          other.startTime == this.startTime);
 }
 
 class SessionsCompanion extends UpdateCompanion<Session> {
   final Value<int> id;
   final Value<String> title;
+  final Value<DateTime> startTime;
   const SessionsCompanion({
     this.id = const Value.absent(),
     this.title = const Value.absent(),
+    this.startTime = const Value.absent(),
   });
   SessionsCompanion.insert({
     this.id = const Value.absent(),
     required String title,
-  }) : title = Value(title);
+    required DateTime startTime,
+  })  : title = Value(title),
+        startTime = Value(startTime);
   static Insertable<Session> custom({
     Expression<int>? id,
     Expression<String>? title,
+    Expression<DateTime>? startTime,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
       if (title != null) 'title': title,
+      if (startTime != null) 'start_time': startTime,
     });
   }
 
-  SessionsCompanion copyWith({Value<int>? id, Value<String>? title}) {
+  SessionsCompanion copyWith(
+      {Value<int>? id, Value<String>? title, Value<DateTime>? startTime}) {
     return SessionsCompanion(
       id: id ?? this.id,
       title: title ?? this.title,
+      startTime: startTime ?? this.startTime,
     );
   }
 
@@ -158,6 +191,9 @@ class SessionsCompanion extends UpdateCompanion<Session> {
     if (title.present) {
       map['title'] = Variable<String>(title.value);
     }
+    if (startTime.present) {
+      map['start_time'] = Variable<DateTime>(startTime.value);
+    }
     return map;
   }
 
@@ -165,7 +201,8 @@ class SessionsCompanion extends UpdateCompanion<Session> {
   String toString() {
     return (StringBuffer('SessionsCompanion(')
           ..write('id: $id, ')
-          ..write('title: $title')
+          ..write('title: $title, ')
+          ..write('startTime: $startTime')
           ..write(')'))
         .toString();
   }
