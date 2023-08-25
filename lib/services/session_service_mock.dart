@@ -40,4 +40,8 @@ class SessionServiceMock implements SessionService {
   Future<int> getAllCount() {
     return Future.value(0);
   }
+
+  Future<int> getTodayCount() async {
+    return Future.value(0);
+  }
 }

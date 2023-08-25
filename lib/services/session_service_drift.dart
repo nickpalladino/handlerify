@@ -50,6 +50,10 @@ class SessionServiceDrift implements SessionService {
     return await sessionsDao.getCount();
   }
 
+  Future<int> getTodayCount() async {
+    return await sessionsDao.getTodayCount();
+  }
+
   void create(Session session) async {
     db.SessionsCompanion entry = _toCompanion(session);
     await sessionsDao.create(entry);
