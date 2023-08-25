@@ -33,7 +33,8 @@ class SessionsDao extends DatabaseAccessor<HandlerifyDatabase> with _$SessionsDa
 
   Future<List<Session>> getToday() {
     return customSelect(
-      'select * from sessions where date(start_time, \'unixepoch\', \'localtime\') = date(\'now\', \'localtime\')',
+      'select * from sessions where date(start_time, \'unixepoch\', \'localtime\') = date(\'now\', \'localtime\') '
+      'order by start_time desc',
       readsFrom: {sessions},
     ).map((session) => sessions.map(session.data)).get();
   }
