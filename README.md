@@ -1,15 +1,15 @@
 # Handlerify
-Working dog training and AI-driven feedback for the handler. Development using Flutter for multi-platform releases. 
+Working dog training journal. Development using Flutter for multi-platform releases. 
 
 # Building
-Run `flutter packages pub run build_runner build` to generate code for dependency injection after adding any new injectable annotations
+Run `flutter packages pub run build_runner build` to generate code for dependency injection and database after adding any new injectable annotations or database changes.
 
 
 # Progress
 - [x] Basic UI layout with navigation implemented for Train & Statistics pages
 - [x] Train page
     - [ ] Display daily statistics: number of sessions, elapsed time, and distance
-    - [ ] Display list of sessions for the day
+    - [x] Display list of sessions for the day
     - [x] Allow a new training session to be started
 - [x] Statistics page
     - [ ] Display statistics by time scale
