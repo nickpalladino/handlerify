@@ -1,5 +1,5 @@
 # Handlerify
-Dog training journal. Development using Flutter for multi-platform releases. 
+Dog training journal. AKC FIT DOG title activity tracking. Development using Flutter for multi-platform releases. 
 
 # Building
 Run `flutter packages pub run build_runner build` to generate code for dependency injection and database after adding any new injectable annotations or database changes.
