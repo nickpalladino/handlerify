@@ -8,9 +8,9 @@ Run `flutter packages pub run build_runner build` to generate code for dependenc
 # Progress
 - [x] Basic UI layout with navigation implemented for Train & Statistics pages ![](https://img.shields.io/badge/MVP-blue)
 - [x] Train page ![](https://img.shields.io/badge/MVP-blue)
-    - [ ] Display daily statistics:
-      - [ ] number of sessions ![](https://img.shields.io/badge/MVP-blue)
-      - [ ] elapsed time ![](https://img.shields.io/badge/MVP-blue)
+    - [x] Display daily statistics:
+      - [x] number of sessions ![](https://img.shields.io/badge/MVP-blue)
+      - [x] elapsed time ![](https://img.shields.io/badge/MVP-blue)
       - [ ] distance
     - [x] Display list of sessions for the day ![](https://img.shields.io/badge/MVP-blue)
     - [x] Allow a new training session to be started ![](https://img.shields.io/badge/MVP-blue)
@@ -19,8 +19,8 @@ Run `flutter packages pub run build_runner build` to generate code for dependenc
     - [x] Display list of sessions all sessions ![](https://img.shields.io/badge/MVP-blue)
     - [ ] Allow filtering of list based on datetime range
 - [ ] New training session / activity page ![](https://img.shields.io/badge/MVP-blue)
-  - [ ] Record audio from microphone for duration of session and save m4a to device ![](https://img.shields.io/badge/MVP-blue)
-  - [ ] Save start time ![](https://img.shields.io/badge/MVP-blue)
+  - [x] Record audio from microphone for duration of session and save m4a to device ![](https://img.shields.io/badge/MVP-blue)
+  - [x] Save start time ![](https://img.shields.io/badge/MVP-blue)
   - [ ] Display timer hh:mm:ss.ms updated every 100ms while session is active ![](https://img.shields.io/badge/MVP-blue)
   - [ ] Save geolocation data for computing distance traveled
   - [ ] Option to enter one or more note tags ![](https://img.shields.io/badge/MVP-blue)
