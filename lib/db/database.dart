@@ -12,7 +12,9 @@ class Sessions extends Table {
   IntColumn get id => integer().autoIncrement()();
   TextColumn get title => text()();
   DateTimeColumn get startTime => dateTime()();
-  //DateTimeColumn get endTime => dateTime()();
+  DateTimeColumn get endTime => dateTime()();
+  IntColumn get elapsedSeconds => integer()();
+  TextColumn get audioFilePath => text().nullable()();
 }
 
 @singleton

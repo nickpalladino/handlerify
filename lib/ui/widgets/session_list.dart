@@ -15,6 +15,8 @@ class SessionList extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return ListView.builder(
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
         padding: const EdgeInsets.all(8),
         itemCount: sessions.length,
         itemBuilder: (BuildContext context, int index) {

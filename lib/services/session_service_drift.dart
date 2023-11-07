@@ -24,15 +24,19 @@ class SessionServiceDrift implements SessionService {
       //TODO: actual db values
       LocationTag('Apartment'),
       session.startTime,
-      Duration(minutes: 15, seconds:30),
-      noNotes
+      Duration(seconds:session.elapsedSeconds),
+      noNotes,
+      session.audioFilePath
     );
   }
 
   db.SessionsCompanion _toCompanion(Session session) {
     return db.SessionsCompanion(
         title: Value(session.title!),
-        startTime: Value(session.startTime!)
+        startTime: Value(session.startTime!),
+        endTime: Value(session.endTime!),
+        elapsedSeconds: Value(session.elapsedTime!.inSeconds),
+        audioFilePath: Value(session.audioFilePath)
     );
   }
 

@@ -12,7 +12,7 @@ class StatisticCard extends StatelessWidget {
       elevation: 0,
       color: Theme.of(context).colorScheme.surfaceVariant,
       child: SizedBox(
-        width: MediaQuery.sizeOf(context).width * 0.3,
+        width: MediaQuery.sizeOf(context).width * 0.47,
         height: 90,
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),

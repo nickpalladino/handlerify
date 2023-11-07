@@ -23,7 +23,10 @@ class SessionController {
 
   Future<SessionsWithStatistics> getTodaysSessionsAndStats() async {
     List<Session> sessions = await sessionService.getTodaysSessions();
-    Statistics statistics = Statistics(sessions.length);
+
+    Duration elapsedSum = sessions.map((session) => session.elapsedTime).fold(Duration(), (prev, amount) => prev + amount!);
+    print(elapsedSum.toString());
+    Statistics statistics = Statistics(sessions.length, elapsedSum);
 
     SessionsWithStatistics sessionsAndStats = SessionsWithStatistics(sessions, statistics);
     return Future.value(sessionsAndStats);
@@ -41,11 +44,15 @@ class SessionController {
   }
 
   // TODO
-  void save() {
+  void save(int durationSeconds, String filePath) {
+    session.elapsedTime = Duration(seconds: durationSeconds);
+    session.endTime = DateTime.now();
+    session.audioFilePath = filePath;
     sessionService.create(session);
   }
 
   void pause() {
+    session.endTime = DateTime.now();
 
   }
 

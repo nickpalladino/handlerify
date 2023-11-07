@@ -10,9 +10,9 @@ class Session {
   double? distanceMiles;
   List<Note>? notes;
   // TODO: geolocation waypoints
-  // TODO: audio file information
+  String? audioFilePath;
 
-  Session(this.title, this.locationTag, this.startTime, this.elapsedTime, this.notes);
+  Session(this.title, this.locationTag, this.startTime, this.elapsedTime, this.notes, this.audioFilePath);
 
   Session.empty();
 

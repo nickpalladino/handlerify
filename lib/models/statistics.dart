@@ -1,7 +1,8 @@
 class Statistics {
   int numSessions;
   // TODO: elapsed time & distance
+  Duration elapsedTime;
 
-  Statistics(this.numSessions);
+  Statistics(this.numSessions, this.elapsedTime);
 
 }
