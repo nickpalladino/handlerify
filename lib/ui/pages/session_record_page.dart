@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:handlerify/handlerify.dart';
-import 'package:handlerify/ui/pages/train_page.dart';
+import 'package:handlerify/ui/pages/activity_page.dart';
 import 'package:handlerify/ui/widgets/audio_recorder.dart';
 
 import '../../injectable.dart';

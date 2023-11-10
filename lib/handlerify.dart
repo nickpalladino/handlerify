@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:handlerify/ui/pages/reports_page.dart';
-import 'package:handlerify/ui/pages/train_page.dart';
+import 'package:handlerify/ui/pages/activity_page.dart';
 import 'package:handlerify/ui/pages/statistics_page.dart';
 
 class HandlerifyApp extends StatelessWidget {
@@ -29,7 +29,7 @@ class Handlerify extends StatefulWidget {
 class _HandlerifyState extends State<Handlerify> {
   int _selectedIndex = 0;
   static const List<Widget> _pages = <Widget>[
-    TrainPage(),
+    ActivityPage(),
     StatisticsPage(),
     ReportsPage()
   ];
@@ -63,7 +63,7 @@ class _HandlerifyState extends State<Handlerify> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.pets),
-            label: 'Train',
+            label: 'Activity',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.analytics),

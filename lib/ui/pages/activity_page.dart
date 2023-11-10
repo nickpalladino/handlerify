@@ -11,14 +11,14 @@ import '../../services/session_service.dart';
 import '../../services/session_service_mock.dart';
 import '../widgets/session_list.dart';
 
-class TrainPage extends StatefulWidget {
-  const TrainPage({super.key});
+class ActivityPage extends StatefulWidget {
+  const ActivityPage({super.key});
 
   @override
-  State<TrainPage> createState() => _TrainState();
+  State<ActivityPage> createState() => _ActivityState();
 }
 
-class _TrainState extends State<TrainPage> {
+class _ActivityState extends State<ActivityPage> {
 
   final SessionController sessionController = getIt.get<SessionController>();
 
