@@ -30,13 +30,13 @@ class _HandlerifyState extends State<Handlerify> {
   int _selectedIndex = 0;
   static const List<Widget> _pages = <Widget>[
     ActivityPage(),
-    StatisticsPage(),
+    HistoryPage(),
     ReportsPage()
   ];
 
   static const List<String> _pageTitles = <String>[
     'Today',
-    'Statistics',
+    'History',
     'Reports'
   ];
 
@@ -66,8 +66,8 @@ class _HandlerifyState extends State<Handlerify> {
             label: 'Activity',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.analytics),
-            label: 'Statistics',
+            icon: Icon(Icons.list_alt),
+            label: 'History',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.analytics),

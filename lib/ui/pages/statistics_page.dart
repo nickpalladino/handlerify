@@ -7,14 +7,14 @@ import '../../services/session_service.dart';
 import '../../services/session_service_mock.dart';
 
 
-class StatisticsPage extends StatefulWidget {
-  const StatisticsPage({super.key});
+class HistoryPage extends StatefulWidget {
+  const HistoryPage({super.key});
 
   @override
-  State<StatisticsPage> createState() => _StatisticsState();
+  State<HistoryPage> createState() => _HistoryState();
 }
 
-class _StatisticsState extends State<StatisticsPage> {
+class _HistoryState extends State<HistoryPage> {
 
   final SessionService sessionService = getIt.get<SessionService>();
 
