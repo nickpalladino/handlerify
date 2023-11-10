@@ -27,7 +27,7 @@ class _TrainState extends State<TrainPage> {
     // TODO: just testing for now
     //sessionController.save();
     // Navigate to session record page
-    Navigator.push(
+    Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => const SessionRecordPage()),
     );

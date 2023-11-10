@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:handlerify/ui/pages/reports_page.dart';
 import 'package:handlerify/ui/pages/train_page.dart';
 import 'package:handlerify/ui/pages/statistics_page.dart';
 
@@ -30,11 +31,13 @@ class _HandlerifyState extends State<Handlerify> {
   static const List<Widget> _pages = <Widget>[
     TrainPage(),
     StatisticsPage(),
+    ReportsPage()
   ];
 
   static const List<String> _pageTitles = <String>[
     'Today',
-    'Statistics'
+    'Statistics',
+    'Reports'
   ];
 
   void _onItemTapped(int index) {
@@ -65,6 +68,10 @@ class _HandlerifyState extends State<Handlerify> {
           BottomNavigationBarItem(
             icon: Icon(Icons.analytics),
             label: 'Statistics',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.analytics),
+            label: 'Reports',
           ),
         ],
         currentIndex: _selectedIndex,

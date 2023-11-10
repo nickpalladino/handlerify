@@ -23,7 +23,7 @@ class _SessionRecordState extends State<SessionRecordPage> {
 
     sessionController.save(lengthSeconds, path);
 
-    Navigator.push(
+    Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => const Handlerify(title: 'Handerlify')),
     );
@@ -37,7 +37,7 @@ class _SessionRecordState extends State<SessionRecordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(),
+        //leading: BackButton(),
         backgroundColor: Theme
             .of(context)
             .scaffoldBackgroundColor,
