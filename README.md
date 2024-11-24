@@ -1,6 +1,8 @@
 # Handlerify
 Dog training journal. AKC FIT DOG title activity tracking. Development using Flutter for multi-platform releases. 
 
+![handlerify](https://github.com/user-attachments/assets/9a098227-30b5-4b65-9961-89def5726cd3)
+
 # Building
 Run `flutter packages pub run build_runner build` to generate code for dependency injection and database after adding any new injectable annotations or database changes.
 
